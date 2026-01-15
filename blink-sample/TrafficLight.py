@@ -1,0 +1,26 @@
+from machine import Pin
+from utime import sleep
+
+pin = Pin(7, Pin.OUT)
+streetLight = {
+    "red": Pin(6, Pin.OUT),
+    "yellow": Pin(7, Pin.OUT),
+    "green": Pin(8, Pin.OUT)
+}
+pedestrianLight = {
+    "red": Pin(18, Pin.OUT),
+    "yellow": Pin(19, Pin.OUT),
+    "green": Pin(20, Pin.OUT)
+}
+pedestrian = False
+car = False
+
+print("LED starts flashing...")
+while True:
+    try:
+        pin.toggle()
+        sleep(1) # sleep 1sec
+    except KeyboardInterrupt:
+        break
+pin.off()
+print("Finished.")
