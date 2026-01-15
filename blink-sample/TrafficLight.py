@@ -15,6 +15,13 @@ pedestrian = False
 car = True
 
 
+def redLight(light):
+    light["green"].off()
+    light["yellow"].on()
+    sleep(2)
+    light["yellow"].off()
+    light["red"].on()
+
 
 print("LED starts flashing...")
 while True:
