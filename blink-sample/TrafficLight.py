@@ -1,7 +1,6 @@
 from machine import Pin
 from utime import sleep
 
-pin = Pin(7, Pin.OUT)
 streetLight = {
     "red": Pin(6, Pin.OUT),
     "yellow": Pin(7, Pin.OUT),
@@ -13,14 +12,19 @@ pedestrianLight = {
     "green": Pin(20, Pin.OUT)
 }
 pedestrian = False
-car = False
+car = True
+
+
 
 print("LED starts flashing...")
 while True:
     try:
-        pin.toggle()
+        if car == True:
+            pedestrianLight["red"].toggle()
+            streetLight["green"].toggle()
         sleep(1) # sleep 1sec
     except KeyboardInterrupt:
         break
-pin.off()
+pedestrianLight["red"].off()
+streetLight["green"].off()
 print("Finished.")
