@@ -20,8 +20,12 @@ print("LED starts flashing...")
 while True:
     try:
         if car == True:
-            pedestrianLight["red"].toggle()
-            streetLight["green"].toggle()
+            pedestrianLight["red"].on()
+            pedestrianLight["yellow"].off()
+            pedestrianLight["green"].off()
+            streetLight["red"].off()
+            streetLight["yellow"].off()
+            streetLight["green"].on()
         sleep(1) # sleep 1sec
     except KeyboardInterrupt:
         break
